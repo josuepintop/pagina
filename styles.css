@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.container {
+    padding: 20px;
+}
+
+.calculator {
+    background: #2d3561;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+    width: 320px;
+}
+
+.display {
+    margin-bottom: 20px;
+}
+
+#display {
+    width: 100%;
+    padding: 20px;
+    font-size: 28px;
+    border: none;
+    border-radius: 10px;
+    background: #1a1f3a;
+    color: #00d4ff;
+    text-align: right;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+#display::placeholder {
+    color: #667eea;
+}
+
+#display:focus {
+    outline: 2px solid #667eea;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.btn {
+    padding: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #3d4673;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    background: #4d5683;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn.clear {
+    background: #ff6b6b;
+    color: white;
+}
+
+.btn.clear:hover {
+    background: #ff5252;
+}
+
+.btn.operator {
+    background: #667eea;
+    color: white;
+}
+
+.btn.operator:hover {
+    background: #5568d3;
+}
+
+.btn.equals {
+    background: #51cf66;
+    color: white;
+    font-size: 20px;
+}
+
+.btn.equals:hover {
+    background: #40c057;
+}
+
+.btn.zero {
+    grid-column: span 2;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .calculator {
+        width: 100%;
+        max-width: 320px;
+    }
+}
