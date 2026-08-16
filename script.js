@@ -3,6 +3,12 @@ let currentInput = '';
 let previousInput = '';
 let operator = null;
 
+let displayDivision = document.getElementById('displayDivision');
+let currentInputDiv = '';
+let previousInputDiv = '';
+
+// ======== CALCULADORA PRINCIPAL ========
+
 // Agregar un número o punto al display
 function appendNumber(num) {
     // Evitar múltiples puntos
@@ -87,7 +93,72 @@ function updateDisplay() {
     display.value = currentInput || '0';
 }
 
-// Permitir uso del teclado
+// ======== CALCULADORA DE DIVISIONES ========
+
+// Agregar un número a la calculadora de divisiones
+function appendNumberDivision(num) {
+    // Evitar múltiples puntos
+    if (num === '.' && currentInputDiv.includes('.')) {
+        return;
+    }
+    
+    currentInputDiv += num;
+    updateDisplayDivision();
+}
+
+// Agregar operador división
+function appendOperatorDivision(op) {
+    if (currentInputDiv === '') return;
+    
+    if (previousInputDiv !== '') {
+        calculateDivision();
+    }
+    
+    previousInputDiv = currentInputDiv;
+    currentInputDiv = '';
+}
+
+// Calcular división
+function calculateDivision() {
+    if (previousInputDiv === '' || currentInputDiv === '') {
+        return;
+    }
+    
+    const prev = parseFloat(previousInputDiv);
+    const current = parseFloat(currentInputDiv);
+    
+    if (current === 0) {
+        alert('No se puede dividir entre 0');
+        clearDisplayDivision();
+        return;
+    }
+    
+    let result = prev / current;
+    currentInputDiv = result.toString();
+    previousInputDiv = '';
+    updateDisplayDivision();
+}
+
+// Limpiar la calculadora de divisiones
+function clearDisplayDivision() {
+    currentInputDiv = '';
+    previousInputDiv = '';
+    updateDisplayDivision();
+}
+
+// Eliminar el último carácter en divisiones
+function deleteLastDivision() {
+    currentInputDiv = currentInputDiv.toString().slice(0, -1);
+    updateDisplayDivision();
+}
+
+// Actualizar display de divisiones
+function updateDisplayDivision() {
+    displayDivision.value = currentInputDiv || '0';
+}
+
+// ======== SOPORTE DE TECLADO ========
+
 document.addEventListener('keydown', function(event) {
     const key = event.key;
     
@@ -117,3 +188,4 @@ document.addEventListener('keydown', function(event) {
 
 // Inicializar
 updateDisplay();
+updateDisplayDivision();

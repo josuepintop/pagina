@@ -8,7 +8,9 @@
 </head>
 <body>
     <div class="container">
+        <!-- Calculadora Principal -->
         <div class="calculator">
+            <h2 class="title">Calculadora Completa</h2>
             <div class="display">
                 <input type="text" id="display" placeholder="0" readonly>
             </div>
@@ -36,6 +38,36 @@
                 <button class="btn zero" onclick="appendNumber('0')">0</button>
                 <button class="btn" onclick="appendNumber('.')">.</button>
                 <button class="btn equals" onclick="calculate()">=</button>
+            </div>
+        </div>
+
+        <!-- Calculadora de Divisiones -->
+        <div class="calculator division-calculator">
+            <h2 class="title">Divisiones</h2>
+            <div class="display">
+                <input type="text" id="displayDivision" placeholder="0" readonly>
+            </div>
+            <div class="buttons">
+                <button class="btn clear" style="grid-column: span 2;" onclick="clearDisplayDivision()">C</button>
+                <button class="btn operator" style="grid-column: span 2;" onclick="deleteLastDivision()">←</button>
+
+                <button class="btn" onclick="appendNumberDivision('7')">7</button>
+                <button class="btn" onclick="appendNumberDivision('8')">8</button>
+                <button class="btn" onclick="appendNumberDivision('9')">9</button>
+
+                <button class="btn" onclick="appendNumberDivision('4')">4</button>
+                <button class="btn" onclick="appendNumberDivision('5')">5</button>
+                <button class="btn" onclick="appendNumberDivision('6')">6</button>
+
+                <button class="btn" onclick="appendNumberDivision('1')">1</button>
+                <button class="btn" onclick="appendNumberDivision('2')">2</button>
+                <button class="btn" onclick="appendNumberDivision('3')">3</button>
+
+                <button class="btn" onclick="appendNumberDivision('.')">.</button>
+                <button class="btn" onclick="appendNumberDivision('0')">0</button>
+                <button class="btn operator" onclick="appendOperatorDivision('/')" style="grid-column: span 2; font-size: 24px;">/</button>
+
+                <button class="btn equals" style="grid-column: span 4;" onclick="calculateDivision()">=</button>
             </div>
         </div>
     </div>
