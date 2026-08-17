@@ -4,99 +4,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda de Ropa - Fashion Store</title>
+    <title>STRIPES - Premium Sports Wear</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <header class="header">
-        <div class="header-content">
-            <h1 class="logo">👗 FASHION STORE 👗</h1>
-            <p class="tagline">Ropa de calidad para ti</p>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">VORTEX</div>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link">Hombre</a></li>
+                <li><a href="#" class="nav-link">Mujer</a></li>
+                <li><a href="#" class="nav-link">Niños</a></li>
+                <li><a href="#" class="nav-link">Ofertas</a></li>
+            </ul>
+            <div class="nav-icons">
+                <span class="icon">🔍</span>
+                <span class="icon">❤️</span>
+                <span class="icon">🛒</span>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <main class="main-content">
-        <div class="products-container">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Rendimiento Supremo</h1>
+            <p>Ropa deportiva diseñada para conquistar cada día</p>
+            <button class="hero-btn">Explorar Colección</button>
+        </div>
+    </section>
+
+    <!-- Categorías -->
+    <section class="categories">
+        <div class="categories-container">
+            <button class="category-btn active" onclick="filterProducts('all')">Todos</button>
+            <button class="category-btn" onclick="filterProducts('hombre')">Hombre</button>
+            <button class="category-btn" onclick="filterProducts('mujer')">Mujer</button>
+            <button class="category-btn" onclick="filterProducts('accesorios')">Accesorios</button>
+        </div>
+    </section>
+
+    <!-- Productos -->
+    <section class="products-section">
+        <div class="products-container" id="productsContainer">
             <!-- Producto 1 -->
-            <div class="product-card">
+            <div class="product-card" data-category="hombre">
                 <div class="product-image">
-                    <img src="https://via.placeholder.com/250x300?text=Camiseta+Azul" alt="Camiseta Azul">
+                    <img src="https://via.placeholder.com/280x350?text=Remera+Negro" alt="Remera Negro">
+                    <span class="product-badge">-30%</span>
                 </div>
-                <div class="product-info">
-                    <h3 class="product-name">Camiseta Azul Premium</h3>
-                    <p class="product-description">Cómoda camiseta de algodón 100%. Perfecta para el día a día. Disponible en varios colores.</p>
-                    <button class="price-button">💰 $29.99</button>
+                <div class="product-details">
+                    <span class="product-category">REMERA</span>
+                    <h3 class="product-name">Remera Running Premium</h3>
+                    <p class="product-desc">Tela transpirable para máximo rendimiento</p>
+                    <div class="product-footer">
+                        <span class="price">$59.99</span>
+                    </div>
                 </div>
             </div>
 
             <!-- Producto 2 -->
-            <div class="product-card">
+            <div class="product-card" data-category="mujer">
                 <div class="product-image">
-                    <img src="https://via.placeholder.com/250x300?text=Pantalon+Negro" alt="Pantalón Negro">
+                    <img src="https://via.placeholder.com/280x350?text=Leggings+Rosa" alt="Leggings Rosa">
+                    <span class="product-badge">-20%</span>
                 </div>
-                <div class="product-info">
-                    <h3 class="product-name">Pantalón Negro Elegante</h3>
-                    <p class="product-description">Pantalón casual versátil. Ideal para cualquier ocasión. Tela de excelente calidad.</p>
-                    <button class="price-button">💰 $49.99</button>
+                <div class="product-details">
+                    <span class="product-category">LEGGINGS</span>
+                    <h3 class="product-name">Leggings Deportivo Elite</h3>
+                    <p class="product-desc">Compresión perfecta para tu entrenamiento</p>
+                    <div class="product-footer">
+                        <span class="price">$79.99</span>
+                    </div>
                 </div>
             </div>
 
             <!-- Producto 3 -->
-            <div class="product-card">
+            <div class="product-card" data-category="hombre">
                 <div class="product-image">
-                    <img src="https://via.placeholder.com/250x300?text=Vestido+Rojo" alt="Vestido Rojo">
+                    <img src="https://via.placeholder.com/280x350?text=Campera+Gris" alt="Campera Gris">
+                    <span class="product-badge">NUEVO</span>
                 </div>
-                <div class="product-info">
-                    <h3 class="product-name">Vestido Rojo Elegante</h3>
-                    <p class="product-description">Hermoso vestido perfecto para eventos especiales. Diseño moderno y sofisticado.</p>
-                    <button class="price-button">💰 $79.99</button>
+                <div class="product-details">
+                    <span class="product-category">CAMPERA</span>
+                    <h3 class="product-name">Campera Deportiva Tech</h3>
+                    <p class="product-desc">Tecnología impermeable y transpirable</p>
+                    <div class="product-footer">
+                        <span class="price">$129.99</span>
+                    </div>
                 </div>
             </div>
 
             <!-- Producto 4 -->
-            <div class="product-card">
+            <div class="product-card" data-category="accesorios">
                 <div class="product-image">
-                    <img src="https://via.placeholder.com/250x300?text=Chaqueta+Gris" alt="Chaqueta Gris">
+                    <img src="https://via.placeholder.com/280x350?text=Zapatillas+Blanco" alt="Zapatillas Blanco">
+                    <span class="product-badge">-15%</span>
                 </div>
-                <div class="product-info">
-                    <h3 class="product-name">Chaqueta Gris Moderna</h3>
-                    <p class="product-description">Chaqueta versátil para todas las estaciones. Cómoda y resistente. Excelente para cualquier estilo.</p>
-                    <button class="price-button">💰 $89.99</button>
+                <div class="product-details">
+                    <span class="product-category">ZAPATILLAS</span>
+                    <h3 class="product-name">Zapatillas Runner X1</h3>
+                    <p class="product-desc">Comodidad y estilo en cada paso</p>
+                    <div class="product-footer">
+                        <span class="price">$149.99</span>
+                    </div>
                 </div>
             </div>
 
             <!-- Producto 5 -->
-            <div class="product-card">
+            <div class="product-card" data-category="mujer">
                 <div class="product-image">
-                    <img src="https://via.placeholder.com/250x300?text=Falda+Blanca" alt="Falda Blanca">
+                    <img src="https://via.placeholder.com/280x350?text=Top+Deportivo" alt="Top Deportivo">
+                    <span class="product-badge">OFERTA</span>
                 </div>
-                <div class="product-info">
-                    <h3 class="product-name">Falda Blanca Casual</h3>
-                    <p class="product-description">Falda ligera y fresca. Perfecta para el verano. Combina con cualquier top.</p>
-                    <button class="price-button">💰 $39.99</button>
+                <div class="product-details">
+                    <span class="product-category">TOP</span>
+                    <h3 class="product-name">Top Deportivo Aerox</h3>
+                    <p class="product-desc">Soporte máximo sin compromiso</p>
+                    <div class="product-footer">
+                        <span class="price">$69.99</span>
+                    </div>
                 </div>
             </div>
 
             <!-- Producto 6 -->
-            <div class="product-card">
+            <div class="product-card" data-category="accesorios">
                 <div class="product-image">
-                    <img src="https://via.placeholder.com/250x300?text=Sudadera+Verde" alt="Sudadera Verde">
+                    <img src="https://via.placeholder.com/280x350?text=Mochila+Negro" alt="Mochila Negro">
+                    <span class="product-badge">-25%</span>
                 </div>
-                <div class="product-info">
-                    <h3 class="product-name">Sudadera Verde Confort</h3>
-                    <p class="product-description">Cálida y acogedora sudadera. Ideal para días frescos. Tela suave y agradable.</p>
-                    <button class="price-button">💰 $59.99</button>
+                <div class="product-details">
+                    <span class="product-category">MOCHILA</span>
+                    <h3 class="product-name">Mochila Deportiva Pro</h3>
+                    <p class="product-desc">Espacio para todo lo que necesitas</p>
+                    <div class="product-footer">
+                        <span class="price">$89.99</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 7 -->
+            <div class="product-card" data-category="hombre">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/280x350?text=Shorts+Azul" alt="Shorts Azul">
+                    <span class="product-badge">NUEVO</span>
+                </div>
+                <div class="product-details">
+                    <span class="product-category">SHORTS</span>
+                    <h3 class="product-name">Shorts Training Supreme</h3>
+                    <p class="product-desc">Libertad de movimiento total</p>
+                    <div class="product-footer">
+                        <span class="price">$49.99</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 8 -->
+            <div class="product-card" data-category="mujer">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/280x350?text=Falda+Negra" alt="Falda Negra">
+                    <span class="product-badge">-10%</span>
+                </div>
+                <div class="product-details">
+                    <span class="product-category">FALDA</span>
+                    <h3 class="product-name">Falda Deportiva Flex</h3>
+                    <p class="product-desc">Diseño moderno y funcional</p>
+                    <div class="product-footer">
+                        <span class="price">$59.99</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </main>
+    </section>
 
+    <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2024 Fashion Store. Todos los derechos reservados.</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>SOBRE NOSOTROS</h4>
+                <p>Ropa deportiva de alta calidad para tu estilo de vida activo</p>
+            </div>
+            <div class="footer-section">
+                <h4>INFORMACIÓN</h4>
+                <ul>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Envíos</a></li>
+                    <li><a href="#">Devoluciones</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>REDES SOCIALES</h4>
+                <div class="social-links">
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 STRIPES. Todos los derechos reservados.</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
+
+</html>
 
 </html>

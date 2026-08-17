@@ -1,31 +1,38 @@
-// Script para la tienda de ropa
-// Los botones de precio no tienen funcionalidad, solo son visuales
+// Script para la tienda tipo Adidas
+console.log('STRIPES Store cargada correctamente');
 
-console.log('Tienda de ropa cargada correctamente');
-
-// Agregar efecto de click a los botones de precio
-const priceButtons = document.querySelectorAll('.price-button');
-
-priceButtons.forEach(button => {
-    button.addEventListener('click', function() {
-        // Efecto visual simple
-        this.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-            this.style.transform = 'scale(1)';
-        }, 200);
-    });
+// Mostrar todos los productos al cargar
+document.addEventListener('DOMContentLoaded', function() {
+    filterProducts('all');
 });
 
-// Animación de carga de las tarjetas
-const productCards = document.querySelectorAll('.product-card');
+// Función para filtrar productos
+function filterProducts(category) {
+    const products = document.querySelectorAll('.product-card');
+    const buttons = document.querySelectorAll('.category-btn');
 
-productCards.forEach((card, index) => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(20px)';
+    // Actualizar botones activos
+    buttons.forEach(btn => {
+        btn.classList.remove('active');
+    });
+    event.target.classList.add('active');
 
-    setTimeout(() => {
-        card.style.transition = 'all 0.5s ease';
-        card.style.opacity = '1';
-        card.style.transform = 'translateY(0)';
-    }, index * 100);
+    // Filtrar y mostrar productos
+    products.forEach(product => {
+        product.classList.remove('show');
+
+        setTimeout(() => {
+            if (category === 'all' || product.getAttribute('data-category') === category) {
+                product.classList.add('show');
+            }
+        }, 50);
+    });
+}
+
+// Animación de carga de productos
+window.addEventListener('load', function() {
+    const productCards = document.querySelectorAll('.product-card.show');
+    productCards.forEach((card, index) => {
+        card.style.animationDelay = (index * 0.1) + 's';
+    });
 });
