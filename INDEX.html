@@ -1,77 +1,102 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora</title>
+    <title>Tienda de Ropa - Fashion Store</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <div class="container">
-        <!-- Calculadora Principal -->
-        <div class="calculator">
-            <h2 class="title">Calculadora Completa</h2>
-            <div class="display">
-                <input type="text" id="display" placeholder="0" readonly>
+    <header class="header">
+        <div class="header-content">
+            <h1 class="logo">👗 FASHION STORE 👗</h1>
+            <p class="tagline">Ropa de calidad para ti</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="products-container">
+            <!-- Producto 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/250x300?text=Camiseta+Azul" alt="Camiseta Azul">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Camiseta Azul Premium</h3>
+                    <p class="product-description">Cómoda camiseta de algodón 100%. Perfecta para el día a día. Disponible en varios colores.</p>
+                    <button class="price-button">💰 $29.99</button>
+                </div>
             </div>
-            <div class="buttons">
-                <button class="btn clear" onclick="clearDisplay()">C</button>
-                <button class="btn operator" onclick="appendOperator('/')">/</button>
-                <button class="btn operator" onclick="appendOperator('*')">×</button>
-                <button class="btn operator" onclick="deleteLast()">←</button>
 
-                <button class="btn" onclick="appendNumber('7')">7</button>
-                <button class="btn" onclick="appendNumber('8')">8</button>
-                <button class="btn" onclick="appendNumber('9')">9</button>
-                <button class="btn operator" onclick="appendOperator('-')">−</button>
+            <!-- Producto 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/250x300?text=Pantalon+Negro" alt="Pantalón Negro">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Pantalón Negro Elegante</h3>
+                    <p class="product-description">Pantalón casual versátil. Ideal para cualquier ocasión. Tela de excelente calidad.</p>
+                    <button class="price-button">💰 $49.99</button>
+                </div>
+            </div>
 
-                <button class="btn" onclick="appendNumber('4')">4</button>
-                <button class="btn" onclick="appendNumber('5')">5</button>
-                <button class="btn" onclick="appendNumber('6')">6</button>
-                <button class="btn operator" onclick="appendOperator('+')">+</button>
+            <!-- Producto 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/250x300?text=Vestido+Rojo" alt="Vestido Rojo">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Vestido Rojo Elegante</h3>
+                    <p class="product-description">Hermoso vestido perfecto para eventos especiales. Diseño moderno y sofisticado.</p>
+                    <button class="price-button">💰 $79.99</button>
+                </div>
+            </div>
 
-                <button class="btn" onclick="appendNumber('1')">1</button>
-                <button class="btn" onclick="appendNumber('2')">2</button>
-                <button class="btn" onclick="appendNumber('3')">3</button>
-                <button class="btn operator" onclick="appendOperator('%')">%</button>
+            <!-- Producto 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/250x300?text=Chaqueta+Gris" alt="Chaqueta Gris">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Chaqueta Gris Moderna</h3>
+                    <p class="product-description">Chaqueta versátil para todas las estaciones. Cómoda y resistente. Excelente para cualquier estilo.</p>
+                    <button class="price-button">💰 $89.99</button>
+                </div>
+            </div>
 
-                <button class="btn zero" onclick="appendNumber('0')">0</button>
-                <button class="btn" onclick="appendNumber('.')">.</button>
-                <button class="btn equals" onclick="calculate()">=</button>
+            <!-- Producto 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/250x300?text=Falda+Blanca" alt="Falda Blanca">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Falda Blanca Casual</h3>
+                    <p class="product-description">Falda ligera y fresca. Perfecta para el verano. Combina con cualquier top.</p>
+                    <button class="price-button">💰 $39.99</button>
+                </div>
+            </div>
+
+            <!-- Producto 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/250x300?text=Sudadera+Verde" alt="Sudadera Verde">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Sudadera Verde Confort</h3>
+                    <p class="product-description">Cálida y acogedora sudadera. Ideal para días frescos. Tela suave y agradable.</p>
+                    <button class="price-button">💰 $59.99</button>
+                </div>
             </div>
         </div>
+    </main>
 
-        <!-- Calculadora de Divisiones -->
-        <div class="calculator division-calculator">
-            <h2 class="title">Divisiones</h2>
-            <div class="display">
-                <input type="text" id="displayDivision" placeholder="0" readonly>
-            </div>
-            <div class="buttons">
-                <button class="btn clear" style="grid-column: span 2;" onclick="clearDisplayDivision()">C</button>
-                <button class="btn operator" style="grid-column: span 2;" onclick="deleteLastDivision()">←</button>
-
-                <button class="btn" onclick="appendNumberDivision('7')">7</button>
-                <button class="btn" onclick="appendNumberDivision('8')">8</button>
-                <button class="btn" onclick="appendNumberDivision('9')">9</button>
-
-                <button class="btn" onclick="appendNumberDivision('4')">4</button>
-                <button class="btn" onclick="appendNumberDivision('5')">5</button>
-                <button class="btn" onclick="appendNumberDivision('6')">6</button>
-
-                <button class="btn" onclick="appendNumberDivision('1')">1</button>
-                <button class="btn" onclick="appendNumberDivision('2')">2</button>
-                <button class="btn" onclick="appendNumberDivision('3')">3</button>
-
-                <button class="btn" onclick="appendNumberDivision('.')">.</button>
-                <button class="btn" onclick="appendNumberDivision('0')">0</button>
-                <button class="btn operator" onclick="appendOperatorDivision('/')" style="grid-column: span 2; font-size: 24px;">/</button>
-
-                <button class="btn equals" style="grid-column: span 4;" onclick="calculateDivision()">=</button>
-            </div>
-        </div>
-    </div>
+    <footer class="footer">
+        <p>&copy; 2024 Fashion Store. Todos los derechos reservados.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
+
 </html>

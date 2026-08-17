@@ -1,191 +1,31 @@
-let display = document.getElementById('display');
-let currentInput = '';
-let previousInput = '';
-let operator = null;
+// Script para la tienda de ropa
+// Los botones de precio no tienen funcionalidad, solo son visuales
 
-let displayDivision = document.getElementById('displayDivision');
-let currentInputDiv = '';
-let previousInputDiv = '';
+console.log('Tienda de ropa cargada correctamente');
 
-// ======== CALCULADORA PRINCIPAL ========
+// Agregar efecto de click a los botones de precio
+const priceButtons = document.querySelectorAll('.price-button');
 
-// Agregar un número o punto al display
-function appendNumber(num) {
-    // Evitar múltiples puntos
-    if (num === '.' && currentInput.includes('.')) {
-        return;
-    }
-    
-    currentInput += num;
-    updateDisplay();
-}
-
-// Agregar un operador
-function appendOperator(op) {
-    if (currentInput === '') return;
-    
-    if (previousInput !== '') {
-        calculate();
-    }
-    
-    operator = op;
-    previousInput = currentInput;
-    currentInput = '';
-}
-
-// Calcular el resultado
-function calculate() {
-    if (previousInput === '' || currentInput === '' || operator === null) {
-        return;
-    }
-    
-    let result;
-    const prev = parseFloat(previousInput);
-    const current = parseFloat(currentInput);
-    
-    switch (operator) {
-        case '+':
-            result = prev + current;
-            break;
-        case '-':
-            result = prev - current;
-            break;
-        case '*':
-            result = prev * current;
-            break;
-        case '/':
-            if (current === 0) {
-                alert('No se puede dividir entre 0');
-                clearDisplay();
-                return;
-            }
-            result = prev / current;
-            break;
-        case '%':
-            result = prev % current;
-            break;
-        default:
-            return;
-    }
-    
-    currentInput = result.toString();
-    operator = null;
-    previousInput = '';
-    updateDisplay();
-}
-
-// Limpiar el display
-function clearDisplay() {
-    currentInput = '';
-    previousInput = '';
-    operator = null;
-    updateDisplay();
-}
-
-// Eliminar el último carácter
-function deleteLast() {
-    currentInput = currentInput.toString().slice(0, -1);
-    updateDisplay();
-}
-
-// Actualizar el display
-function updateDisplay() {
-    display.value = currentInput || '0';
-}
-
-// ======== CALCULADORA DE DIVISIONES ========
-
-// Agregar un número a la calculadora de divisiones
-function appendNumberDivision(num) {
-    // Evitar múltiples puntos
-    if (num === '.' && currentInputDiv.includes('.')) {
-        return;
-    }
-    
-    currentInputDiv += num;
-    updateDisplayDivision();
-}
-
-// Agregar operador división
-function appendOperatorDivision(op) {
-    if (currentInputDiv === '') return;
-    
-    if (previousInputDiv !== '') {
-        calculateDivision();
-    }
-    
-    previousInputDiv = currentInputDiv;
-    currentInputDiv = '';
-}
-
-// Calcular división
-function calculateDivision() {
-    if (previousInputDiv === '' || currentInputDiv === '') {
-        return;
-    }
-    
-    const prev = parseFloat(previousInputDiv);
-    const current = parseFloat(currentInputDiv);
-    
-    if (current === 0) {
-        alert('No se puede dividir entre 0');
-        clearDisplayDivision();
-        return;
-    }
-    
-    let result = prev / current;
-    currentInputDiv = result.toString();
-    previousInputDiv = '';
-    updateDisplayDivision();
-}
-
-// Limpiar la calculadora de divisiones
-function clearDisplayDivision() {
-    currentInputDiv = '';
-    previousInputDiv = '';
-    updateDisplayDivision();
-}
-
-// Eliminar el último carácter en divisiones
-function deleteLastDivision() {
-    currentInputDiv = currentInputDiv.toString().slice(0, -1);
-    updateDisplayDivision();
-}
-
-// Actualizar display de divisiones
-function updateDisplayDivision() {
-    displayDivision.value = currentInputDiv || '0';
-}
-
-// ======== SOPORTE DE TECLADO ========
-
-document.addEventListener('keydown', function(event) {
-    const key = event.key;
-    
-    if (key >= '0' && key <= '9') {
-        appendNumber(key);
-    } else if (key === '.') {
-        appendNumber('.');
-    } else if (key === '+' || key === '-') {
-        appendOperator(key);
-    } else if (key === '*') {
-        event.preventDefault();
-        appendOperator('*');
-    } else if (key === '/') {
-        event.preventDefault();
-        appendOperator('/');
-    } else if (key === '%') {
-        appendOperator('%');
-    } else if (key === 'Enter' || key === '=') {
-        event.preventDefault();
-        calculate();
-    } else if (key === 'Backspace') {
-        deleteLast();
-    } else if (key === 'Escape') {
-        clearDisplay();
-    }
+priceButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        // Efecto visual simple
+        this.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            this.style.transform = 'scale(1)';
+        }, 200);
+    });
 });
 
-// Inicializar
-updateDisplay();
-updateDisplayDivision();
+// Animación de carga de las tarjetas
+const productCards = document.querySelectorAll('.product-card');
+
+productCards.forEach((card, index) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+
+    setTimeout(() => {
+        card.style.transition = 'all 0.5s ease';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+    }, index * 100);
+});
